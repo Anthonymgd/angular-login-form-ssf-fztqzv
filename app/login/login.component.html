@@ -1,5 +1,5 @@
 <div class="login-wrapper">
-  <form [formGroup]="form" (ngSubmit)="save($event)" class="login">
+  <form [formGroup]="loginForm" (ngSubmit)="save($event)" class="login">
     <label class="title">
       <h3 class="welcome">Bievenido a</h3>
       LiveStock
@@ -40,9 +40,7 @@
 
       <button
         type="submit"
-        class="btn btn-primary pb-4 pt-0"
-        [disabled]="loginForm.form.invalid"
-      >
+        class="btn btn-primary pb-4 pt-0"      >
         Ingresar
       </button>
 

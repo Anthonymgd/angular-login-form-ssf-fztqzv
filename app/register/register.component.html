@@ -1,8 +1,7 @@
 <div class="login-wrapper justify-content-start">
   <form
-  [formGroup]="form" (ngSubmit)="save($event)"
-    [hidden]="submitted"
-    class="login p-5"
+  [formGroup]="registerForm" (ngSubmit)="save($event)"
+    class="login p-5" (ngSubmit)="addItem()"
   >
     <button class="btn btn-danger btn-sm mx-auto pb-3" (click)="toLogin()">
       Regresar
@@ -26,8 +25,8 @@
                 placeholder="Bryan Alfredo Solórzano Montero"
               />
               <label for="floatingInput">Nombres y Apellidos</label>
-              <div *ngIf="form.get('nameCtrl')?.errors && form.get('nameCtrl')?.touched">
-              <p *ngIf="form.get('nameCtrl')?.hasError('required')">Es un campo requerido.</p>
+              <div *ngIf="nameCtrl?.errors && nameCtrl?.touched">
+              <p *ngIf="nameCtrl?.hasError('required')">Es un campo requerido.</p>
           </div>
             </div>
             <div class="form-floating mb-3">
@@ -88,7 +87,7 @@
         <button
           class="btn btn-primary pt-0"
           type="submit"
-          [disabled]="employeeForm.form.invalid"
+          [disabled]="this.registerForm.invalid"
         >
           Registrarse
         </button>

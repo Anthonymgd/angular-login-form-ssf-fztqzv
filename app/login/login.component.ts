@@ -20,7 +20,7 @@ import {
 export class LoginComponent implements OnInit {
   user: any = {};
 
-  form!: FormGroup; // No provee una inicialización
+  loginForm: FormGroup; // No provee una inicialización
 
   constructor(private formBuilder: FormBuilder, private router: Router) {
     this.buildForm();
@@ -29,13 +29,13 @@ export class LoginComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 
-  onSubmit(form) {
-    console.log(this.user, form.form._value);
+  onSubmit(loginForm) {
+    console.log(this.user, this.loginForm.value);
   }
 
   private buildForm() {
     // Enviar todos los campos con sus validaciones
-    this.form = this.formBuilder.group({
+    this.loginForm = this.formBuilder.group({
       // Creamos cada uno de los controladores
       passCtrol: new FormControl('', [Validators.required]),
       emailCtrol: new FormControl('', [Validators.required, Validators.email]),
@@ -44,22 +44,21 @@ export class LoginComponent implements OnInit {
 
   save(event: Event) {
     event.preventDefault();
-    if (this.form.valid) {
-      const value = this.form.value;
+    if (this.loginForm.valid) {
+      const value = this.loginForm.value;
       console.log(value);
       this.router.navigate(['/home']);
     } else {
-      console.log(this.form);
-      this.form.markAsTouched();
-
+      console.log(this.loginForm);
+      this.loginForm.markAsTouched();
     }
   }
 
   get passCtrol() {
-    return this.form.get('passCtrol');
+    return this.loginForm.get('passCtrol');
   }
 
   get emailCtrol() {
-    return this.form.get('emailCtrol');
+    return this.loginForm.get('emailCtrol');
   }
 }
