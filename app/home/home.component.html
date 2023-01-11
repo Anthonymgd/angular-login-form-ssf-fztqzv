@@ -1,0 +1,167 @@
+<app-template></app-template>
+
+<div
+  id="form"
+  class="
+    container
+    d-flex
+    h-100
+    my-5
+    justify-content-center
+    bg-light
+    rounded-3
+    border
+    p-3
+  "
+>
+  <form (ngSubmit)="enviar($event)">
+    <div>
+      <h3>
+        Formulario para la compra de <span class="text-primary">Ganado</span>
+      </h3>
+    </div>
+    <div class="form-group">
+      <label for="usr">Nombres Completos:</label>
+      <input type="text" class="form-control" id="usr" />
+    </div>
+    <div class="form-group">
+      <label for="pwd">Cédula/Pasaporte:</label>
+      <input type="text" class="form-control" id="pwd" />
+    </div>
+    <div class="form-group">
+      <label for="email">Correo electrónico:</label>
+      <input type="email" class="form-control" id="email" />
+    </div>
+    <div class="form-group">
+      <label for="comment">Comentario:</label>
+      <textarea
+        placeholder="Escriba aquí información extra"
+        class="form-control"
+        rows="3"
+        id="comment"
+      ></textarea>
+    </div>
+    <div class="form-group">
+      <label for="sel1">Seleccione el lugar de residencia:</label>
+      <select class="form-control" id="sel1" name="sellist1">
+        <option>Santo Domingo</option>
+        <option>Manabí</option>
+        <option>Los Ríos</option>
+        <option>Guayas</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="sel2">Añada el ganado a comprar:</label>
+      <div class="border p-3" *ngFor="let item of portFolioItems">
+        <h1>{{ item.projectName }}</h1>
+        <small>{{ item.link }}</small>
+
+        <br />
+        <button
+          class="btn btn-sm btn-danger"
+          (click)="deleteItem($event, item)"
+        >
+          x
+        </button>
+      </div>
+
+      <button
+        class="btn btn-primary rounded-pill p-0 pb-4"
+        (click)="addItem()"
+        [disabled]="addTemplate"
+      >
+        +
+      </button>
+
+      <br /><br />
+
+      <div class="border rounded-2 p-4" *ngIf="addTemplate">
+        <label for="sel2">Animal:</label>
+        <select>
+          <option *ngFor="let animal of animales" #newProjectName>
+            <span style="font-size:14px;" class="form-control">{{
+              animal
+            }}</span>
+          </option>
+        </select>
+        <!-- <input type="text" #newProjectName placeholder="Animal"> -->
+
+        <input
+          value="1"
+          min="1"
+          type="number"
+          #newLink
+          placeholder="Cantidad"
+        />
+        <br />
+        <button
+          class="btn btn-danger btn-sm"
+          *ngIf="addTemplate"
+          (click)="cancelAdd()"
+        >
+          Cancelar
+        </button>
+        <button
+          class="btn btn-primary btn-sm"
+          (click)="save({ projectName: newProjectName, link: newLink.value })"
+        >
+          Gurdar
+        </button>
+      </div>
+    </div>
+
+    <div class="custom-control custom-checkbox my-4">
+      <input
+        type="checkbox"
+        class="custom-control-input m-5"
+        id="customCheck"
+        name="example1"
+      />
+      <label
+        class="custom-control-label"
+        for="customCheck"
+        style="font-size:18px;"
+        >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Acepto los términos y
+        condiciones</label
+      >
+    </div>
+    <button
+      type="submit"
+      style="font-size:14px; font-weight:bold"
+      class="pb-4 btn btn-lg btn-primary"
+      href="#editarvaca"
+      data-toggle="modal"
+    >
+      Enviar
+    </button>
+  </form>
+</div>
+
+<!-- Edit Modal HTML -->
+<div id="editarvaca" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form>
+        <div class="modal-header">
+          <h4 class="modal-title">Pedido generado</h4>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-hidden="true"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="modal-body bg-light">
+          <p class="text-sucess">
+            Se te enviará a tu correo electrónico un link directo, una vez que
+            se haya validado su proceso, para que suba el comprobante del pago.
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,230 @@
+<app-template></app-template>
+
+<div class="container">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2><b>LiveStock</b></h2>
+        </div>
+      </div>
+    </div>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>
+            <span class="custom-checkbox">
+              <!-- <input type="checkbox" id="selectAll"> -->
+              <label for="selectAll"></label>
+            </span>
+          </th>
+          <th>Identificador</th>
+          <th>Fecha</th>
+          <th>Cédula</th>
+          <th>Nombres completos</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span class="custom-checkbox">
+              <input
+                type="checkbox"
+                id="checkbox1"
+                name="options[]"
+                value="1"
+              />
+              <label for="checkbox1"></label>
+            </span>
+          </td>
+          <td>1</td>
+          <td>13/04/2022</td>
+          <td>2350751315</td>
+          <td>Pablo Ortega</td>
+          <td>
+          <a href="#editarvaca" data-toggle="modal"
+            ><i class="material-icons">visibility</i></a
+          >
+        </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="custom-checkbox">
+              <input
+                type="checkbox"
+                id="checkbox2"
+                name="options[]"
+                value="1"
+              />
+              <label for="checkbox2"></label>
+            </span>
+          </td>
+          <td>2</td>
+          <td>02/06/2022</td>
+          <td>2350751316</td>
+          <td>Julio César</td>
+          <td>
+          <a href="#editarvaca" data-toggle="modal"
+            ><i class="material-icons">visibility</i></a
+          >
+        </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="custom-checkbox">
+              <input
+                type="checkbox"
+                id="checkbox3"
+                name="options[]"
+                value="1"
+              />
+              <label for="checkbox3"></label>
+            </span>
+          </td>
+          <td>3</td>
+          <td>18/10/2022</td>
+          <td>2350751317</td>
+          <td>Kevin López</td>
+          <td>
+          <a href="#editarvaca" data-toggle="modal"
+            ><i class="material-icons">visibility</i></a
+          >
+        </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="custom-checkbox">
+              <input
+                type="checkbox"
+                id="checkbox4"
+                name="options[]"
+                value="1"
+              />
+              <label for="checkbox4"></label>
+            </span>
+          </td>
+          <td>4</td>
+          <td>30/03/2022</td>
+          <td>2350751318</td>
+          <td>Miguel Veliz</td>
+          <td>
+          <a href="#editarvaca" data-toggle="modal"
+            ><i class="material-icons">visibility</i></a
+          >
+        </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="custom-checkbox">
+              <input
+                type="checkbox"
+                id="checkbox5"
+                name="options[]"
+                value="1"
+              />
+              <label for="checkbox5"></label>
+            </span>
+          </td>
+          <td>5</td>
+          <td>08/11/2022</td>
+          <td>2350751319</td>
+          <td>Mario Estrada</td>
+          <td>
+            <a href="#editarvaca" data-toggle="modal"
+              ><i class="material-icons">visibility</i></a
+            >
+          </td>
+        </tr>
+      </tbody>
+      <!-- Edit Modal HTML -->
+      <div id="agregarvaca" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <form>
+              <div class="modal-header">
+                <h4 class="modal-title">Añadir Pedido</h4>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-hidden="true"
+                >
+                  &times;
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label>Identificador</label>
+                  <input type="text" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label>Fecha</label>
+                  <input type="email" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label>Precio compra/l</label>
+                  <textarea class="form-control" required></textarea>
+                </div>
+                <div class="form-group">
+                  <label>Total</label>
+                  <input type="text" class="form-control" required />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <input
+                  type="button"
+                  class="btn btn-default"
+                  data-dismiss="modal"
+                  value="Cancel"
+                />
+                <input type="submit" class="btn btn-success" value="Add" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Edit Modal HTML -->
+      <div id="editarvaca" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <form>
+              <div class="modal-header">
+                <h4 class="modal-title">Comprobante de <span class="text-primary">Pago</span></h4>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-hidden="true"
+                >
+                  &times;
+                </button>
+              </div>
+              <div class="modal-body text-center">
+                <p>¿El comprobante de pago es válido?</p>
+                <img src="data:image/jpeg;base64,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" alt="">
+                <p class="text-warning">
+                  <small>Esta acción es definitiva</small>
+                </p>
+              </div>
+              <div class="modal-footer row m-auto align-items-center justify-content-center">
+                <input
+                  type="button"
+                  class="btn btn-sm btn-danger"
+                  data-dismiss="modal"
+                  value="Rechazar"
+                />
+                <input
+                  type="submit"
+                  class="btn btn-sm btn-success"
+                  value="Confirmar pedido"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </table>
+  </div>
+</div>
+<app-footer></app-footer>
